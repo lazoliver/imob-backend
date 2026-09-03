@@ -1,6 +1,6 @@
 {
   "name": "imob-backend",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Multi-tenant API for estate agents",
   "main": "index.js",
   "repository": "https://github.com/lazoliver/imob-backend",
