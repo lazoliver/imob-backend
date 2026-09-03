@@ -12,7 +12,7 @@ const TenantsService = {
     const tenant = await TenantsRepository.check(validatedData.slug);
 
     if (!tenant) {
-      throw new Error("Organização não cadastrada.");
+      throw new Error("Organização indisponível.");
     }
 
     return tenant;
