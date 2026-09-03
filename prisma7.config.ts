@@ -1,5 +1,5 @@
 import { defineConfig } from "prisma/config";
-import vars from "./src/config/vars";
+import vars from "./src/configs/vars";
 
 export default defineConfig({
   schema: "prisma/schema.prisma",

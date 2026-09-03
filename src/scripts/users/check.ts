@@ -1,33 +1,34 @@
 import { ValidationError } from "yup";
 import { prisma } from "../../database/prisma";
-import TenantsService from "../../services/tenants";
+import UsersService from "../../services/users";
 import logger from "../../configs/logger";
 
 void (async () => {
   try {
     const args = process.argv;
 
-    if (args.length != 3) {
-      throw new Error("uso: yarn status-tenant <tenant-slug>");
+    if (args.length != 4) {
+      throw new Error("uso: yarn check-user <tenant-slug> <user-email>");
     }
 
     const tenantSlug = args[2];
+    const email = args[3];
 
-    const tenant = await TenantsService.status(tenantSlug);
+    const user = await UsersService.check(tenantSlug, email);
 
     logger.debug(
-      `scripts/tenants/status - id: ${tenant.id} | name: ${tenant.name} | active: ${tenant.active}`,
+      `scripts/users/check - id: ${user.id} email: ${user.email} active: ${user.active} role: ${user.role}`,
     );
   } catch (error) {
     if (error instanceof ValidationError) {
-      logger.error("scripts/tenants/status - ", {
+      logger.error("scripts/users/check - ", {
         message: error.message,
         errors: error.errors,
       });
     } else if (error instanceof Error) {
-      logger.error("scripts/tenants/status - ", error);
+      logger.error("scripts/users/check - ", error);
     } else {
-      logger.error("scrips/tenants/status - ", error);
+      logger.error("scripts/users/check - ", error);
     }
     process.exit(1);
   } finally {

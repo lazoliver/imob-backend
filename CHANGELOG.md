@@ -4,6 +4,10 @@
 
 ### Added
 
+- User Methods ([#4](http://github.com/lazoliver/imob-backend/pull/4))
+
+### Added
+
 - Tenant Methods ([#3](http://github.com/lazoliver/imob-backend/pull/3))
 
 ### Added
