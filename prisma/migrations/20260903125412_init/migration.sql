@@ -78,6 +78,12 @@ CREATE TABLE "Property" (
 CREATE UNIQUE INDEX "Tenant_slug_key" ON "Tenant"("slug");
 
 -- CreateIndex
+CREATE INDEX "User_tenantId_idx" ON "User"("tenantId");
+
+-- CreateIndex
+CREATE UNIQUE INDEX "User_tenantId_email_key" ON "User"("tenantId", "email");
+
+-- CreateIndex
 CREATE INDEX "Property_tenantId_idx" ON "Property"("tenantId");
 
 -- CreateIndex

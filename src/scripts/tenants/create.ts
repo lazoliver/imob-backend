@@ -1,6 +1,7 @@
 import { ValidationError } from "yup";
 import { prisma } from "../../database/prisma";
 import TenantsService from "../../services/tenants";
+import logger from "../../configs/logger";
 
 void (async () => {
   try {
@@ -15,19 +16,19 @@ void (async () => {
 
     const tenant = await TenantsService.create(tenantSlug, tenantName);
 
-    console.log(
+    logger.debug(
       `scripts/tenants/create - id: ${tenant.id} | name: ${tenant.name} | active: ${tenant.active}`,
     );
   } catch (error) {
     if (error instanceof ValidationError) {
-      console.error("scripts/tenants/create - ", {
+      logger.error("scripts/tenants/create - ", {
         message: error.message,
         errors: error.errors,
       });
     } else if (error instanceof Error) {
-      console.error("scripts/tenants/create - ", error.message);
+      logger.error("scripts/tenants/create - ", error);
     } else {
-      console.error("scrips/tenants/create - ", error);
+      logger.error("scrips/tenants/create - ", error);
     }
     process.exit(1);
   } finally {
