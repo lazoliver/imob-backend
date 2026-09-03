@@ -1,0 +1,9 @@
+{
+  "name": "imob-backend",
+  "version": "0.0.0",
+  "description": "Multi-tenant API for estate agents",
+  "main": "index.js",
+  "repository": "https://github.com/lazoliver/imob-backend",
+  "author": "Wilian S. de Oliveira",
+  "license": "MIT"
+}
