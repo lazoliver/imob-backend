@@ -1,9 +1,41 @@
 {
   "name": "imob-backend",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Multi-tenant API for estate agents",
   "main": "index.js",
   "repository": "https://github.com/lazoliver/imob-backend",
   "author": "Wilian S. de Oliveira",
-  "license": "MIT"
+  "license": "MIT",
+  "scripts": {
+    "build": "rm -rf dist && tsc",
+    "check-format": "prettier . --check",
+    "dev": "tsx watch src/index.ts",
+    "format": "prettier . --write",
+    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+    "start": "node dist/index.js"
+  },
+  "dependencies": {
+    "@prisma/adapter-pg": "^7.10.0",
+    "@prisma/client": "7.10.0",
+    "bcrypt": "^6.0.0",
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1",
+    "jsonwebtoken": "^9.0.3",
+    "pg": "^8.23.0",
+    "yup": "^1.7.1"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "@types/bcrypt": "^6.0.0",
+    "@types/express": "^5.0.6",
+    "@types/jsonwebtoken": "^9.0.10",
+    "@types/node": "^26.4.0",
+    "@types/pg": "^8.23.1",
+    "eslint": "^10.9.1",
+    "prettier": "^3.9.6",
+    "prisma": "7.10.0",
+    "tsx": "^4.23.12",
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.68.0"
+  }
 }
