@@ -4,6 +4,10 @@
 
 ### Added
 
+- User Authentication ([#5](http://github.com/lazoliver/imob-backend/pull/5))
+
+### Added
+
 - User Methods ([#4](http://github.com/lazoliver/imob-backend/pull/4))
 
 ### Added

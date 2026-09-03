@@ -1,5 +1,4 @@
 import { NewUserRequest, UserResponse } from "../interfaces/users";
-import TenantsRepository from "../repositories/tenants";
 import UsersRepository from "../repositories/users";
 import { checkUserSchema, createUserSchema } from "../validations/users";
 import TenantsService from "./tenants";
@@ -16,10 +15,6 @@ const UsersService = {
     );
 
     const tenantExists = await TenantsService.check(validatedData.slug);
-
-    if (!tenantExists) {
-      throw new Error("Organização indisponível.");
-    }
 
     if (!tenantExists.active) {
       throw new Error("Organização inativa.");
@@ -44,11 +39,7 @@ const UsersService = {
     const { email, name, surname, orgName, password } =
       await createUserSchema.validate(userData, { abortEarly: false });
 
-    const tenantExists = await TenantsRepository.check(orgName);
-
-    if (!tenantExists) {
-      throw new Error(`Organização não cadastrada.`);
-    }
+    const tenantExists = await TenantsService.check(orgName);
 
     if (!tenantExists.active) {
       throw new Error(`Organização inativa.`);
@@ -77,10 +68,6 @@ const UsersService = {
     );
 
     const tenantExists = await TenantsService.check(validatedData.slug);
-
-    if (!tenantExists) {
-      throw new Error(`Organização não cadastrada.`);
-    }
 
     if (!tenantExists.active) {
       throw new Error(`Organização inativa.`);

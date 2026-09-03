@@ -28,6 +28,7 @@ export const changeUserRoleSchema = object({
 });
 
 export const loginUserSchema = object({
+  slug: string().required("Slug é obrigatória."),
   email: string().required("Email do usuário é obrigatório."),
   password: string()
     .required("Senha do usuário é obrigatório.")
