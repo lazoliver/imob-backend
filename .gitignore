@@ -1,5 +1,7 @@
 # folder
 node_modules
+logs
 
 # files
 .env
+/src/database/generated/prisma
