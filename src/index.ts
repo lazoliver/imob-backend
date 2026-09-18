@@ -1,10 +1,12 @@
 import express from "express";
+import vars from "./configs/vars";
+import logger from "./configs/logs";
 
 function startServer() {
   const app = express();
 
-  app.listen(4000, () => {
-    console.log(`start_server - http://localhost:${4000}`);
+  app.listen(vars.api_port, () => {
+    logger.info(`start_server - http://localhost:${vars.api_port}`);
   });
 }
 
