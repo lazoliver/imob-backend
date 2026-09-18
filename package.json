@@ -4,7 +4,10 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "dev": "tsx watch src/index.ts"
+    "dev": "tsx watch src/index.ts",
+    "check-org": "tsx src/scripts/organizations/check.ts",
+    "create-org": "tsx src/scripts/organizations/create.ts",
+    "status-org": "tsx src/scripts/organizations/status.ts"
   },
   "dependencies": {
     "@prisma/adapter-pg": "^7.10.0",
